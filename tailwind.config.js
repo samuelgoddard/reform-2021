@@ -4,8 +4,7 @@ module.exports = {
   darkMode: false,
   theme: {
     fontFamily: {
-      'sans': ['Arial', 'sans-serif'],
-      'mono': ['Lucida Console', 'Courier', 'monospace'],
+      'sans': ['Freigeist', 'Helvetica', 'Arial', 'sans-serif']
     },
     screens: {
       sm: "640px",
@@ -17,13 +16,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        'black': '#000',
-        'white': '#FFF',
-        'example-color': {
-          light: '#ffb288',
-          DEFAULT: '#d18d67',
-          dark: '#ce8860',
-        },
+        'black': '#1F1F1F',
+        'offblack': '#333333',
+        'offwhite': '#E5E1DF',
+        'offwhitelight' : '#EBE9E8',
+        'blackhalf' : 'rgba(51, 51, 51, 0.7)'
       }
     },
   },

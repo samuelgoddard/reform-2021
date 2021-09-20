@@ -6,11 +6,27 @@ import FancyLink from '@/components/fancyLink'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
+import SanityPageService from '@/services/sanityPageService'
 
-export default function Home() {
+const query = `{
+  "home": *[_type == "home"][0]{
+    title,
+    seo {
+      ...,
+      shareGraphic {
+        asset->
+      }
+    },
+  }
+}`
+
+const pageService = new SanityPageService(query)
+
+export default function Home(initialData) {
+  const { data: { home }} = pageService.getPreviewHook(initialData)()
   return (
     <Layout>
-      <NextSeo title="Home" />
+      <NextSeo title={home.title} />
 
       <Header />
       
@@ -23,7 +39,7 @@ export default function Home() {
         >
           <Container>
             <m.article variants={fade}>
-              <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">Next x Tailwind x Motion</h1>
+              <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">{home.title}</h1>
               <div className="content max-w-3xl mb-4">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
 
@@ -39,4 +55,12 @@ export default function Home() {
       <Footer />
     </Layout>
   )
+}
+
+export async function getStaticProps(context) {
+  const props = await pageService.fetchQuery(context)
+
+  return {
+    props: props
+  }
 }
