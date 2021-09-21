@@ -12,7 +12,354 @@
 @import 'tailwindcss/utilities';
 
 
-/* Simple defaults */
-body {
-  @apply font-sans antialiased text-black bg-white;
+.animate-coin {
+  animation: coin-rotate 13s ease-in-out infinite;
+}
+@keyframes coin-rotate {
+  0 {
+    transform: rotateY(0);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.Marquee { 
+    white-space: nowrap;
+    overflow-x: hidden;
+    display: block;
+    position: relative;    
+
+    /* &:before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        transition-delay: 50ms;
+        transition-property: box-shadow;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+    } */
+}
+
+.MarqueeContent {
+    display: inline-block;
+    text-align: left;
+}
+
+.home-image {
+  mix-blend-mode: darken;
+
+  div, img, picture {
+    mix-blend-mode: darken;
+  }
+}
+
+.about-content {
+  margin-top: -100vh;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  @apply text-black opacity-100 !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  @apply text-black opacity-100 !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  @apply text-black opacity-100 !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  @apply text-black opacity-100 !important;
+}
+
+.will-change {
+  will-change: transform;
+}
+
+
+/* .intro-motif {
+  stroke: #333333;
+  stroke-width: 1px;
+  stroke-linecap: butt;
+} */
+
+
+.intro-motif {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: dash 4.6s ease-in-out forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.logo-mask-reveal {
+  width: 18%;
+  left: 45%;
+}
+
+.lineParent, .lineParentNonScroll {
+  overflow: hidden;
+  display: block;
+}
+
+.split-right {
+  .lineParent, .lineParentNonScroll, .lineChildNonScroll, .lineChild {
+      @apply text-right;
+      text-align: end !important;
+  }
+}
+
+
+/*! purgecss start ignore */
+.about-image-teaser {
+  .grayimage {
+    @apply transition-all ease-in-out duration-1000 opacity-50;
+
+    filter:grayscale(100%);
+    -webkit-filter:grayscale(100%);
+  }
+
+  &:hover, &:focus {
+    .grayimage {
+      @apply opacity-100;
+      filter:grayscale(0%);
+      -webkit-filter:grayscale(0%);
+    }
+  }
+}
+
+.slick-slider
+{
+    position: relative;
+    height: 100%;
+
+    display: block;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    height: 100%;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+
+    height: 100%;
+    min-height: 1px;
+}
+
+.slick-slide > div {
+  @apply h-full;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+
+    height: auto;
+
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/*! purgecss end ignore */
+
+
+.logo-char {
+  @apply transition-all ease-in-out duration-500;
+}
+
+.logo-first-r {
+  transform: translateX(33px);
+  -webkit-transform: translateX(33px);
+}
+.logo-e {
+  transform: translateX(182.501px);
+  -webkit-transform: translateX(182.501px);
+}
+.logo-f {
+  transform: translateX(329.316px);
+  -webkit-transform: translateX(329.316px);
+}
+.logo-o {
+  transform: translateX(437.674px);
+  -webkit-transform: translateX(437.674px);
+}
+.logo-last-r {
+  transform: translateX(607.028px);
+  -webkit-transform: translateX(607.028px);
+}
+.logo-m {
+  transform: translateX(756.529px);
+  -webkit-transform: translateX(756.529px);
+}
+
+.logo-reveal:hover {
+  .logo-first-r {
+    transform: translate(33px, 240px);
+    -webkit-transform: translate(33px, 240px);
+    transition-delay: 0.375s;
+  }
+  .logo-e {
+    transform: translate(182.501px, 240px);
+    -webkit-transform: translate(182.501px, 240px);
+    transition-delay: 0.3s;
+  }
+  .logo-f {
+    transform: translate(329.316px, 240px);
+    -webkit-transform: translate(329.316px, 240px);
+    transition-delay: 0.225s;
+  }
+  .logo-o {
+    transform: translate(437.674px);
+    -webkit-transform: translate(437.674px);
+    transition-delay: 0.15s;
+  }
+  .logo-last-r {
+    transform: translate(607.028px, 240px);
+    -webkit-transform: translate(607.028px, 240px);
+    transition-delay: 0.075s;
+  }
+  .logo-m {
+    transform: translate(756.529px, 240px);
+    -webkit-transform: translate(756.529px, 240px);
+  }
+}
+
+.gatsby-image-wrapper img {
+  transition: opacity 1000ms ease 0s !important;
+}
+
+textarea {
+  resize: none;
+}
+
+html.has-scroll-smooth {
+  @apply overflow-hidden;
+}
+
+.has-scroll-smooth body {
+  @apply overflow-hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  @apply min-h-screen;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+  @apply h-screen inline-block whitespace-nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+  @apply inline-block align-top whitespace-nowrap h-full;
 }

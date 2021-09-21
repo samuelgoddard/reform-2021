@@ -1,29 +1,71 @@
-import Container from '@/components/container'
+import React from "react"
+import Link from "next/link"
+import FooterCta from "@/components/footerCta"
 
-export default function Footer() {
+const Footer = ({ color, hideCta }) => {
+  let colorClasses = `bg-black text-offwhite texture-overlay texture-overlay--dark `
+  let colorBorderClasses = `border-offwhite `
+
+  if (color === "white") {
+    colorClasses = `bg-offwhite text-offblack texture-overlay `
+    colorBorderClasses = `border-black `
+  }
+
   return (
-    <footer className="mb-4">
-      <Container>
-        <div className="border-t border-black py-4">
-          <div className="flex flex-wrap text-xs">
-            <div className="flex space-x-1 mb-1 md:mb-0">
-              <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">MIT License</a>
+    <>
+      { !hideCta ? (<FooterCta color={ color }/>) : (<></>)}
 
-              <span className="block">&bull;</span>
+      <footer className={ colorClasses + colorBorderClasses + `border-t w-full `}>
+        <div className="flex flex-wrap items-center">
+          <a href="https://www.instagram.com/reform_property/" target="_blank" rel="noopener noreferrer" className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium block px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 border-r group`}>
+            <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+              <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
+                <span className="block transform translate">Insta<span className="hidden md:inline">gram</span></span>
+                <span className="hidden md:block">Insta<span className="hidden md:inline">gram</span></span>
+              </span>
+            </span>
+          </a>
 
-              <span className="block"><a href="https://github.com/samuelgoddard/next-tailwind-motion" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Github</a></span>
-
-              <span className="block">&bull;</span>
-
-              <span className="block"><a href="https://twitter.com/samuelgoddard" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Twitter</a></span>
-            </div>
-
-            <div className="md:ml-auto w-full md:w-auto flex space-x-1">
-              <span className="block">Maintained by <a href="https://samgoddard.co.uk" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-500 focus:text-gray-500">Sam Goddard</a></span>
-            </div>
-          </div>
+          <span className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 border-r flex items-center`}>
+            <span className="mr-1"><span className="hidden md:inline-block">Site</span> by</span>
+            <a target="_blank" rel="noopener noreferrer" className="group leading-none flex" href="https://ijpowell.co.uk">
+            <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+              <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px xl:pt-px md:leading-tight">
+                <span className="block transform translate">IJP</span>
+                <span className="hidden md:block">IJP</span>
+              </span>
+            </span>
+            </a>
+            <span className="mx-1">+</span>
+            <a target="_blank" rel="noopener noreferrer" className="group leading-none flex" href="https://samgoddard.co.uk">
+            <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+              <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px xl:pt-px md:leading-tight">
+                <span className="block transform translate">SG</span>
+                <span className="hidden md:block">SG</span>
+              </span>
+            </span>
+            </a>
+          </span>
+          {/* <span className="text-xs md:text-lg xl:text-xl uppercase font-medium px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 mx-auto text-center hidden xl:block">
+            Development done differently
+          </span> */}
+          <Link href="/privacy">
+            <a className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium block px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 ml-auto border-l group`}>
+              <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+                <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
+                  <span className="block transform translate">Privacy <span className="hidden md:inline">Policy</span></span>
+                  <span className="hidden md:block">Privacy <span className="hidden md:inline">Policy</span></span>
+                </span>
+              </span>
+            </a>
+          </Link>
+          <span className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium block px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 border-l`}>
+            &copy;2021
+          </span>
         </div>
-      </Container>
-    </footer>
+      </footer>
+    </>
   )
 }
+
+export default Footer

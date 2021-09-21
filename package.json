@@ -29,6 +29,8 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^2.19.0",
     "framer-motion": "^4.1.17",
+    "gsap": "npm:@gsap/business@^3.7.1",
+    "locomotive-scroll": "^4.1.2",
     "next": "^11.1.2",
     "next-sanity": "^0.4.0",
     "next-sanity-image": "^3.1.5",
@@ -38,7 +40,9 @@
     "postcss-preset-env": "^6.7.0",
     "preact": "^10.5.13",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-locomotive-scroll": "^0.2.0",
+    "react-smooth-marquee": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
