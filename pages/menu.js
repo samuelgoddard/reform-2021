@@ -62,7 +62,7 @@ export default function Menu(initialData) {
                                 )
                               })}
 
-                              <li><Link href="/"><a className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Journal</a></Link></li>
+                              <li><Link href="/journal"><a className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Journal</a></Link></li>
                               <li><Link href="/contact"><a className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Contact</a></Link></li>
                             </ul>
                           </nav>

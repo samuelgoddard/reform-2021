@@ -25,7 +25,10 @@ const query = `{
   },
   "expertises": *[_type == "expertises"]{
     title,
-    heroText
+    heroText,
+    slug {
+      current
+    }
   }
 }`
 
@@ -194,7 +197,7 @@ export default function Home(initialData) {
                         <div className="w-1/2 text-right  split-right">
                         <Link href="/about">
                           <a className="text-base md:text-lg xl:text-xl uppercase font-medium inline-block border-b border-black group">
-                            <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+                            <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6">
                               <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
                                 <span className="block transform translate">About Us</span>
                                 <span className="hidden md:block">About Us</span>
@@ -210,7 +213,7 @@ export default function Home(initialData) {
                       <div className="">
                         <div className="grid md:grid-cols-2">
                           <div className="md:grid-col-1 md:border-r border-offblack">
-                            {whatWeDoBlocksFirstCol.map(({ title, heroText }, i) => {
+                            {whatWeDoBlocksFirstCol.map(({ title, heroText, slug }, i) => {
                               return (
                                 <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksFirstCol.length - 1 ? 'border-b border-offblack md:border-b-0' : 'border-b border-offblack' }`}>
                                   
@@ -221,13 +224,24 @@ export default function Home(initialData) {
                                     
                                     <span className="flex-1 -mt-1 inline-block ml-1 md:ml-2 pr-12 md:pr-0 ">{ title }</span></h3>
                                     <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl" dangerouslySetInnerHTML={{ __html: heroText }} />
+
+                                    <Link href={`/${slug.current}`}>
+                                      <a className={ `text-sm md:text-lg mt-6 uppercase font-medium block group underline`}>
+                                        <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
+                                          <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
+                                            <span className="block transform translate">Learn More</span>
+                                            <span className="hidden md:block">Learn More</span>
+                                          </span>
+                                        </span>
+                                      </a>
+                                    </Link>
                                   </div>
                                 </div>
                               )
                             })} 
                           </div>
                           <div className="md:grid-col-1">
-                            {whatWeDoBlocksSecondCol.map(({ title, heroText }, i) => {
+                            {whatWeDoBlocksSecondCol.map(({ title, heroText, slug }, i) => {
                               return (
                                 <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksSecondCol.length - 1 ? '' : 'border-b border-offblack' }`}>
                                   <div className="scrollreveal">
@@ -237,6 +251,17 @@ export default function Home(initialData) {
                                     
                                     <span className="flex-1 -mt-1 ml-1 md:ml-2 pr-12 md:pr-0 ">{ title }</span></h3>
                                     <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl" dangerouslySetInnerHTML={{ __html: heroText }} />
+
+                                    <Link href={`/${slug.current}`}>
+                                      <a className={ `text-sm md:text-lg mt-6 uppercase font-medium block group underline`}>
+                                        <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6">
+                                          <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
+                                            <span className="block transform translate">Learn More</span>
+                                            <span className="hidden md:block">Learn More</span>
+                                          </span>
+                                        </span>
+                                      </a>
+                                    </Link>
                                   </div>
                                 </div>
                               )
