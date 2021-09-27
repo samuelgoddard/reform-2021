@@ -363,3 +363,25 @@ html.has-scroll-dragging {
 [data-scroll-direction="horizontal"] [data-scroll-section] {
   @apply inline-block align-top whitespace-nowrap h-full;
 }
+
+.accordion__panel {
+  animation: fadein 0.8s ease-in-out;
+}
+
+.accordion__button {
+  @apply h-[45px] md:h-[50px] xl:h-[53px] transition-all ease-in-out duration-[600ms];
+}
+
+.accordion__button[aria-expanded='true'] {
+  @apply h-32; 
+}
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}

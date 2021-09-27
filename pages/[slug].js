@@ -6,8 +6,16 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import NumberShape from '@/components/numberShape'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import BlockContent from '@sanity/block-content-to-react'
+
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
 
 const query = `*[_type == "expertises" && slug.current == $slug][0]{
   seo {
@@ -29,7 +37,11 @@ const query = `*[_type == "expertises" && slug.current == $slug][0]{
     asset ->
   },
   process[] {
-    title
+    title,
+    description,
+    supportingImage {
+      asset ->
+    },
   },
   slug {
     current
@@ -41,6 +53,10 @@ const pageService = new SanityPageService(query)
 export default function Expertises(initialData) {
   const { data: { seo, title, slug, heroImage, supportingImage, heroText, introText, process }} = pageService.getPreviewHook(initialData)() 
   const containerRef = useRef(null)
+  const [currentImage, setCurrentImage] = useState(0);
+  const [currentHoveredImage, setCurrentHoveredImage] = useState(0);
+  const [imageLock, setImageLock] = useState(false);
+  
 
   return (
     <Layout>
@@ -103,23 +119,132 @@ export default function Expertises(initialData) {
               >
                 <div className="grid md:grid-cols-5 relative z-10 border-b border-black">
 
-                  <m.div variants={fade} className="md:col-span-2 md:h-[75vh] relative overflow-hidden md:mb-0 bg-offwhitelight flex pt-20">
+                  <m.div variants={fade} className="md:col-span-2 md:min-h-[900px] relative overflow-hidden md:mb-0 bg-offwhitelight flex pt-20">
                     <div className="mt-auto w-full">
                       <h2 className="relative expertise-title w-11/12 md:w-10/12 xl:w-8/12 textreveal px-4 md:px-4 xl:px-8 pb-3 md:pb-6 xl:pb-10">Our <span className="italic">process</span></h2>
+                      
+                      <div className="border-t border-black">
+                        <Accordion>
+                          {process.map(({ title, description }, i) => {
+                            return (
+                              <div
+                                key={i}
+                                className={`block text-xl md:text-xl lg:text-2xl xl:text-3xl px-4 md:px-4 xl:px-8 hover:bg-offwhite transition-colors ease-in-out duration-300 ${ i !== process.length - 1 ? 'border-b border-black' : ''}`} 
+                                onMouseOver={() => setCurrentHoveredImage(i + 1)}
+                                onMouseOut={() => setCurrentHoveredImage(0)}
+                                onClick={() => setImageLock(true) & setCurrentImage(i + 1)}
+                              >
 
-                      <ul>
-                        {process.map(({ title }, i) => {
-                          return (
-                            <li key={i} className={`block py-2 text-xl md:text-2xl xl:text-3xl px-4 md:px-4 xl:px-8 ${ i !== process.length - 1 ? 'border-b border-black' : ''}`}>{title}</li>
-                          )
-                        })}
-                      </ul>
+                                <AccordionItem>
+                                  <AccordionItemHeading>
+                                    <AccordionItemButton>
+                                      <div className="flex w-full py-2">
+                                        <span className="block">{title}</span>
+                                        <span className="block ml-auto mt-[1px] md:mt-0">+</span>
+                                      </div>
+                                    </AccordionItemButton>
+                                  </AccordionItemHeading>
+                                  <AccordionItemPanel>
+                                    <p className="text-base block mb-3 w-10/12">
+                                      {description}
+                                    </p>
+                                  </AccordionItemPanel>
+                              </AccordionItem>
+                              </div>
+                            )
+                          })}
+                        </Accordion>
+                      </div>
                     </div>
                   </m.div>
 
-                  <m.div variants={fade} className="md:col-span-3 md:h-[75vh] relative overflow-hidden bg-offwhite md:border-l border-black">
+                  <m.div variants={fade} className="md:col-span-3 md:min-h-[900px] relative overflow-hidden bg-offwhite md:border-l border-black">
                     { heroImage && (
                       <img src={heroImage.asset.url} className="w-full h-full object-cover object-center" />
+                    )}
+
+                    {process.length > 0 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 1 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[0].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+                    
+                    {process.length > 1 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 2 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[1].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+                    
+                    {process.length > 2 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 3 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[2].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 3 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 4 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[3].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 4 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 5 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[4].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 5 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 6 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[5].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 6 && (
+                      <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentImage == 5 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[6].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 0 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 1 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[0].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+                    
+                    {process.length > 1 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 2 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[1].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+                    
+                    {process.length > 2 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 3 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[2].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 3 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 4 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[3].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 4 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 5 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[4].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 5 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 6 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[5].supportingImage.asset.url} alt="" />
+                      </div>
+                    )}
+
+                    {process.length > 6 && (
+                      <div className={`absolute inset-0 z-[1000] transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 5 ? 'opacity-100' : 'opacity-0' }`}>
+                        <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={process[6].supportingImage.asset.url} alt="" />
+                      </div>
                     )}
                   </m.div>
                 </div>

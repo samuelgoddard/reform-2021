@@ -70,32 +70,6 @@ export default function Projects(initialData) {
                       </Link>
                     )
                   })}
-                  {projects.map(({ title, images, slug, expertises, year }, i) => {
-                    return (
-                      <Link href={`/projects/${slug.current}`} key={i}>
-                        <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 block group ${i%2 == 0 ? 'md:w-1/3' : 'md:w-2/3'} `}>
-                          <img src={images[0].asset.url} className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0" />
-
-                          <span className="block text-lg md:text-xl xl:text-2xl">{title}</span>
-                          <span className="block text-sm italic">{expertises.title}</span>
-                          <span className="block text-sm italic">{year}</span>
-                        </a>
-                      </Link>
-                    )
-                  })}
-                  {projects.map(({ title, images, slug, expertises, year }, i) => {
-                    return (
-                      <Link href={`/projects/${slug.current}`} key={i}>
-                        <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 block group ${i%2 == 0 ? 'md:w-2/3' : 'md:w-1/3'} `}>
-                          <img src={images[0].asset.url} className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0" />
-
-                          <span className="block text-lg md:text-xl xl:text-2xl">{title}</span>
-                          <span className="block text-sm italic">{expertises.title}</span>
-                          <span className="block text-sm italic">{year}</span>
-                        </a>
-                      </Link>
-                    )
-                  })}
                 </m.div>
               </m.section>
 

@@ -20,7 +20,7 @@ const FooterCta = ({ color }) => {
         <img src="/images/footer.webp" alt="Footer Image" className="opacity-50 object-cover object-center w-full h-full will-change" />
       </div>
 
-      <div className="container relative z-20">
+      <div className="relative z-20">
         <div className="flex items-center justify-center h-screen max-h-90screen">
           <div className="w-full text-center -mt-12 md:-mt-16">
             <div className="w-4 relative mx-auto mb-8 md:mb-12">
