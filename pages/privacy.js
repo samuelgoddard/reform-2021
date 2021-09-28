@@ -66,7 +66,9 @@ export default function Privacy(initialData) {
 
                     <span className="block max-w-xs pt-6 pb-6 md:pb-12 md:pt-24 xl:text-lg">
                       { contact.address && (
-                        <span className="mb-4 block textreveal">{contact.address }</span>
+                        <div className="mb-4 block textreveal">
+                          <BlockContent serializers={{ container: ({ children }) => children }} blocks={contact.address} />
+                        </div>
                       )}
                       { contact.emailAddress && (
                         <a href={`mailto:${contact.emailAddress}`} className="block group textreveal underline">

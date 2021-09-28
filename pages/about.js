@@ -8,6 +8,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import NumberShape from '@/components/numberShape'
 import { useRef } from 'react'
 import BlockContent from '@sanity/block-content-to-react'
+import ImageWrapper from '@/components/image-wrapper'
 
 const query = `{
   "about": *[_type == "about"][0]{
@@ -68,7 +69,7 @@ export default function About(initialData) {
                   <div className="absolute top-0 left-0 right-0 bottom-0" id="pinned-pane"></div>
 
                   <m.div variants={fade} className="md:col-span-1 md:h-screen relative px-4 pt-5 pb-40 md:py-24 md:mt-2 xl:mt-5 overflow-hidden md:mb-0 bg-offwhitelight" data-scroll-sticky data-scroll data-scroll-target="#pinned-pane">
-                    <h1 className="mb-0 pb-0 md:-mt-16 xl:-mt-20 relative about-title w-11/12 md:w-10/12 xl:w-8/12 xl:pr-0 textreveal">
+                    <h1 className="mb-0 pb-0 md:-mt-16 xl:-mt-20 relative about-title w-12/12 md:w-10/12 xl:w-8/12 xl:pr-0 textreveal">
                     <span className="overflow-hidden block">
                         <m.span
                           initial={{ y: "100%" }}
@@ -156,7 +157,7 @@ export default function About(initialData) {
                     </div> */}
                   </m.div>
 
-                  <m.div variants={fade} className="md:col-span-1 border-t md:border-l md:border-t-0 border-black bg-black texture-overlay texture-overlay--dark text-offwhite relative">
+                  <m.div variants={fade} className="md:col-span-1 border-t md:border-l md:border-t-0 border-black bg-black texture-overlay texture-overlay--dark text-offwhite relative select-dark">
                     <div className="content relative" id="content-pane">
                       
                       {/* <div className="h-full about-content"> */}
@@ -169,7 +170,13 @@ export default function About(initialData) {
                             <div className="w-full h-64 hidden md:block from-black via-black to-transparent absolute bottom-0 left-0 right-0 bg-gradient-to-t z-40"></div>
                           </div>
 
-                          <img src={about.heroImage.asset.url} className="w-full object-cover object-center relative md:h-screen will-change z-50 md:-mt-100vh" />
+                          <ImageWrapper
+                            image={about.heroImage.asset}
+                            className="w-full object-cover object-center relative md:h-screen will-change z-50 md:-mt-100vh"
+                            baseWidth={900}
+                            baseHeight={1600}
+                            fill
+                          />
 
                           {/* <Img fluid={ this.props.data.about.image.fluid } className="w-full object-cover object-center relative md:h-screen will-change z-50 md:-mt-100vh" /> */}
 
@@ -178,7 +185,7 @@ export default function About(initialData) {
                             <div className="border-b border-offwhite px-4 md:px-0 pb-8 md:pb-12 xl:pb-16">
                               <div className="lg:flex lg:flex-wrap items-start pt-12 md:pt-0">
                                 <div className="scrollreveal">
-                                  <h2 className="mb-8 md:mb-12 xl:mb-16 lg:pt-2 text-offwhite italic">Our<br/>mission</h2>
+                                  <h2 className="mb-8 md:mb-12 xl:mb-16 lg:pt-2 text-offwhite italic select-dark">Our<br/>mission</h2>
                                 </div>
                               </div>
 
@@ -186,7 +193,7 @@ export default function About(initialData) {
                               <div className="lg:flex lg:flex-wrap items-start px-0 md:px-0 pt-0 md:pt-0">
                                 {/* <NumberShape number="A" white /> */}
                                 <div className="scrollreveal w-11/12 md:w-9/12 lg:w-9/12 xl:w-10/12 2xl:w-9/12 xl:max-w-lg">
-                                  <div className="xl:text-lg pt-3 lg:pt-0">
+                                  <div className="xl:text-xl pt-3 lg:pt-0 select-dark">
                                     <BlockContent serializers={{ container: ({ children }) => children }} blocks={about.ourMission} />
                                   </div>
                                 </div>
@@ -245,7 +252,12 @@ export default function About(initialData) {
                                     <div className="flex flex-wrap items-center border-b border-offwhite pb-5 mb-5">
                                       <div className="w-full mb-5">
                                         {image && (
-                                          <img src={image.asset.url} className="w-full" />
+                                          <ImageWrapper
+                                            image={image.asset}
+                                            className="w-full"
+                                            baseWidth={900}
+                                            baseHeight={550}
+                                          />
                                         )}
                                       </div>
 
@@ -292,7 +304,12 @@ export default function About(initialData) {
                 <div>
                   <m.div variants={fade} className="-mt-5 relative z-50">
                     {about.supportingImage && (
-                      <img src={about.supportingImage.asset.url} className="w-full" />
+                      <ImageWrapper
+                        image={about.supportingImage.asset}
+                        className="w-full"
+                        baseWidth={1600}
+                        baseHeight={800}
+                      />
                     )}
                     <Footer />
                   </m.div>

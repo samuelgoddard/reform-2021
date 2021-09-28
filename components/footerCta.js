@@ -28,7 +28,7 @@ const FooterCta = ({ color }) => {
               <div className="w-3 h-3 -ml-1 rounded-full absolute bottom-0 left-0"></div>
             </div>
             <div className="scrollreveal">
-              <h2 className="footer-title max-w-4xl mx-auto mb-8 md:mb-12 textreveal">Looking for a <span className="italic">partner</span> for your next development?</h2>
+              <h2 className="footer-title max-w-4xl mx-auto mb-8 md:mb-12 textreveal">See how we can help with your next project</h2>
             </div>
 
             <div className="scrollreveal">

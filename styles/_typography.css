@@ -45,7 +45,7 @@ h1, .h1 {
 }
 
 .about-title {
-  @apply text-3xl leading-tighter tracking-tight md:leading-tighter lg:leading-tighter xl:leading-tighter 3xl:leading-tighter;
+  @apply text-[2.1rem] leading-tighter tracking-tight md:leading-tighter lg:leading-tighter xl:leading-tighter 3xl:leading-tighter;
 
   @screen md {
     font-size: 4.5vw;
@@ -111,7 +111,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  @apply text-3xl leading-tighter tracking-tight md:text-4xl md:leading-tighter 2xl:text-5xl 2xl:leading-tighter !important;
+  @apply text-3xl leading-tighter tracking-tight md:text-4xl md:leading-tighter 2xl:text-5xl 3xl:text-6xl 2xl:leading-tighter !important;
 
   p {
     @apply tracking-tight;
@@ -119,7 +119,7 @@ h2, .h2 {
 }
 
 .footer-title {
-  @apply text-3xl leading-tighter tracking-tight md:text-5xl md:leading-tighter 2xl:text-6xl 2xl:leading-tighter;
+  @apply text-4xl leading-tighter tracking-tight md:text-6xl md:leading-tighter 2xl:text-6xl 3xl:text-[4vw] 2xl:leading-tighter !important;
 
   p {
     @apply tracking-tight;
@@ -143,7 +143,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  @apply text-2xl leading-none tracking-tiny md:text-3xl md:leading-none xl:text-3xl xl:leading-none !important;
+  @apply text-[1.75rem] leading-none tracking-tiny md:text-3xl md:leading-none xl:text-[2.25rem] xl:leading-none !important;
 }
 
 
@@ -216,4 +216,29 @@ p {
 
 ::selection {
   @apply text-offwhite bg-black;
+}
+
+
+.select-dark::selection {
+  @apply text-black bg-offwhite !important;
+}
+
+.bg-black * {
+  &::selection {
+    @apply text-black bg-offwhite !important;
+  }
+}
+
+.bg-black * {
+  &::moz-selection {
+  @apply text-black bg-offwhite !important;
+  }
+}
+
+.bg-black > p::selection {
+  @apply text-black bg-offwhite !important;
+}
+
+.bg-black::moz-selection {
+  @apply text-black bg-offwhite !important;
 }

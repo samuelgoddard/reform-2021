@@ -7,6 +7,7 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import Home from 'pages'
+import ImageWrapper from '@/components/image-wrapper'
 
 const query = `{
   "expertises": *[_type == "expertises"]{
@@ -66,68 +67,141 @@ export default function Menu(initialData) {
                 <div className="overflow-hidden">
                   <div className="pt-12 md:pt-16 xl:pt-20 md:h-screen">
                     <m.div variants={fade} className="flex flex-wrap md:h-full">
-                      <div className="w-full md:w-1/2 xl:w-1/3 border-r border-black relative h-[35vh] md:h-full ">
-                        <img src="https://placedog.net/600/1000" className="absolute inset-0 object-center object-cover w-full h-full" />
+                      <div className="w-full md:w-1/2 xl:w-1/3 border-r border-black relative h-[35vh] md:h-full hidden md:block overflow-hidden">
+
+                        <ImageWrapper
+                          image={menu.images[0].asset}
+                          className="absolute inset-0 object-center object-cover w-full h-full"
+                          baseWidth={900}
+                          baseHeight={1200}
+                          fill
+                        />
+
+                        {/* <img src={menu.images[0].asset.url} className="absolute inset-0 object-center object-cover w-full h-full" /> */}
 
                         {menu.images.length > 0 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 1 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[0].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[1].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 1 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 2 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[1].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[2].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 2 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 3 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[2].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[3].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 3 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 4 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[3].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[4].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
                         
                         {menu.images.length > 4 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 5 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[4].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 5 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[5].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 5 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 6 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[5].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[6].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 6 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 7 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[6].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 7 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[7].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
 
                         {menu.images.length > 7 && (
-                          <div className={`absolute inset-0 z-100 transition-opacity ease-in-out duration-500 ${ currentHoveredImage == 8 ? 'opacity-100' : 'opacity-0' }`}>
-                            <img className="absolute object-cover object-top w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" src={menu.images[7].asset.url} alt="" />
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                            <div className="w-full h-full transform inset-0">
+                              <ImageWrapper
+                                image={menu.images[8].asset}
+                                className="object-cover object-top absolute inset-0"
+                                baseWidth={900}
+                                baseHeight={1200}
+                                fill
+                              />
+                            </div>
                           </div>
                         )}
                       </div>
 
                       <div className="w-full md:w-1/2 xl:w-2/3 md:h-full">
                         <div className="flex flex-wrap h-full items-center">
-                          <nav className="w-full">
+                          <nav className="w-full tracking-tighter">
                             <ul>
                               <li>
                                 <Link href="/">
                                   <a
                                     onMouseOver={() => setCurrentHoveredImage(1)}
                                     onMouseOut={() => setCurrentHoveredImage(0)}
-                                    className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-t border-b border-black">Home</a>
+                                    className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-t border-b border-black">Home</a>
                                 </Link>
                               </li>
 
@@ -135,23 +209,23 @@ export default function Menu(initialData) {
                                 <a
                                   onMouseOver={() => setCurrentHoveredImage(2)}
                                   onMouseOut={() => setCurrentHoveredImage(0)}
-                                  className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">About Us
+                                  className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-b border-black">About Us
                                 </a>
                               </Link></li>
 
                               <li><Link href="/projects"><a onMouseOver={() => setCurrentHoveredImage(3)}
-                                  onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Projects</a></Link></li>
+                                  onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-b border-black">Projects</a></Link></li>
 
                               {expertises.map(({ title, slug }, i) => {
                                 return (
                                   <li><Link href={`/${slug.current}`}><a onMouseOver={() => setCurrentHoveredImage(i + 4)}
-                                  onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">{title}</a></Link></li>
+                                  onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-b border-black">{title}</a></Link></li>
                                 )
                               })}
 
-                              <li><Link href="/journal"><a onMouseOver={() => setCurrentHoveredImage(7)} onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Journal</a></Link></li>
+                              <li><Link href="/journal"><a onMouseOver={() => setCurrentHoveredImage(7)} onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-b border-black">Journal</a></Link></li>
 
-                              <li><Link href="/contact"><a onMouseOver={() => setCurrentHoveredImage(8)} onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-3xl md:text-4xl xl:text-5xl border-b border-black">Contact</a></Link></li>
+                              <li><Link href="/contact"><a onMouseOver={() => setCurrentHoveredImage(8)} onMouseOut={() => setCurrentHoveredImage(0)} className="block transition-all ease-in-out duration-300 p-4 md:px-10 md:py-5 xl:px-16 xl:py-6 md:hover:pl-14 xl:hover:pl-20 text-xl md:text-4xl xl:text-5xl border-b border-black">Contact</a></Link></li>
                             </ul>
                           </nav>
 

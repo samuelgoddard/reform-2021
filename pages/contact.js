@@ -60,7 +60,9 @@ export default function Contact(initialData) {
                           <span className="inline-block transform rotate-90">↳</span> Get in touch</span>
                         </span>
                         { contact.address && (
-                          <p className="mb-4 block textreveal">{contact.address}</p>
+                          <div className="mb-4 block textreveal">
+                            <BlockContent serializers={{ container: ({ children }) => children }} blocks={contact.address} />
+                          </div>
                         )}
                         { contact.emailAddress && (
                           <a href={`mailto:${contact.emailAddress}`} className="block group textreveal underline">

@@ -8,6 +8,7 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
+import ImageWrapper from '@/components/image-wrapper'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -25,7 +26,7 @@ const query = `{
   },
   "expertises": *[_type == "expertises"]{
     title,
-    heroText,
+    teaserText,
     slug {
       current
     }
@@ -54,17 +55,17 @@ export default function Home(initialData) {
           <div data-scroll-section>
             <LazyMotion features={domAnimation}>
               <m.section
-                className=""
+                className="bg-offwhitelight"
                 initial="initial"
                 animate="enter"
                 exit="exit"
               >
                 <div className="overflow-hidden">
                   <div className="pt-10 md:pt-12 xl:pt-16">
-                    <m.div variants={fade} className="pt-12 md:pt-16 xl:pt-16 relative z-10 bg-offwhitelight">
+                    <m.div variants={fade} className="pt-12 md:pt-16 xl:pt-16 relative z-10">
                       
                       <div className="flex flex-wrap items-center px-5 md:px-8">
-                        <div className="w-full md:w-9/12">
+                        <div className="w-full md:w-9/12 relative">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1127 240" className="">
                             <defs>
                               <clipPath id="clip-logo-stroke">
@@ -127,11 +128,11 @@ export default function Home(initialData) {
                       </div>
                     </m.div>
 
-                    <m.div variants={fade} className="pt-5 md:-mt-4 xl:-mt-8 border-b border-black relative z-0 bg-offwhitelight">
+                    <m.div variants={fade} className="pt-5 md:-mt-4 xl:-mt-8 border-b border-black relative">
                       <div className="pb-12 md:pb-20 3xl:pb-32 bg-offwhitelight">
                         <div className="relative lg:-mt-12">
 
-                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex z-30">
+                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex">
                             <span className="block ml-5 leading-tight">
                               <span className="overflow-hidden block">
                                 <m.span
@@ -163,8 +164,22 @@ export default function Home(initialData) {
                             </span>
                           </div>
 
-                          <div>
-                            <img src={home.heroImage.asset.url} className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" />
+                          <div className="relative">
+                            {/* <img src={home.heroImage.asset.url} className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" /> */}
+
+                              <ImageWrapper
+                                image={home.heroImage.asset}
+                                className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100 hidden md:block"
+                                baseWidth={1600}
+                                baseHeight={1200}
+                              />
+
+                              <ImageWrapper
+                                image={home.heroImage.asset}
+                                className="w-full home-image bg-offwhitelight will-change transform  origin-top-right md:scale-100 block md:hidden"
+                                baseWidth={900}
+                                baseHeight={1200}
+                              />
                             {/* <Img fluid={ this.props.data.home.image.fluid } className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" /> */}
                           </div>
                         </div>
@@ -174,7 +189,7 @@ export default function Home(initialData) {
                             <div className="w-full h-px bg-offblack mr-12"></div>
                           </div>
                           
-                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto -mt-6 md:-mt-48 xl:-mt-84 3xl:-mt-96 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
+                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto -mt-24 md:-mt-48 xl:-mt-84 3xl:-mt-96 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
                             <div className="ml-auto text-right w-full md:w-auto mb-3 flex md:block">
                               <div className="ml-auto">
                                 <NumberShape number="R" />
@@ -213,17 +228,17 @@ export default function Home(initialData) {
                       <div className="">
                         <div className="grid md:grid-cols-2">
                           <div className="md:grid-col-1 md:border-r border-offblack">
-                            {whatWeDoBlocksFirstCol.map(({ title, heroText, slug }, i) => {
+                            {whatWeDoBlocksFirstCol.map(({ title, teaserText, slug }, i) => {
                               return (
                                 <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksFirstCol.length - 1 ? 'border-b border-offblack md:border-b-0' : 'border-b border-offblack' }`}>
                                   
                                   <div className="scrollreveal">
                                     <h3 className="h4 flex flex-wrap items-center w-full mb-6 md:mb-8">
                                     
-                                    <NumberShape number={i + 1} />
+                                    {/* <NumberShape number={i + 1} /> */}
                                     
-                                    <span className="flex-1 -mt-1 inline-block ml-1 md:ml-2 pr-12 md:pr-0 ">{ title }</span></h3>
-                                    <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl" dangerouslySetInnerHTML={{ __html: heroText }} />
+                                    <span className="flex-1 -mt-1 inline-block pr-12 md:pr-0 ">{ title }</span></h3>
+                                    <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl xl:text-lg" dangerouslySetInnerHTML={{ __html: teaserText }} />
 
                                     <Link href={`/${slug.current}`}>
                                       <a className={ `text-sm md:text-lg mt-6 uppercase font-medium block group underline`}>
@@ -241,16 +256,16 @@ export default function Home(initialData) {
                             })} 
                           </div>
                           <div className="md:grid-col-1">
-                            {whatWeDoBlocksSecondCol.map(({ title, heroText, slug }, i) => {
+                            {whatWeDoBlocksSecondCol.map(({ title, teaserText, slug }, i) => {
                               return (
                                 <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksSecondCol.length - 1 ? '' : 'border-b border-offblack' }`}>
                                   <div className="scrollreveal">
                                     <h3 className="h4 flex flex-wrap items-center w-full mb-6 md:mb-8">
                                     
-                                    <NumberShape number={i + 3} />
+                                    {/* <NumberShape number={i + 3} /> */}
                                     
-                                    <span className="flex-1 -mt-1 ml-1 md:ml-2 pr-12 md:pr-0 ">{ title }</span></h3>
-                                    <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl" dangerouslySetInnerHTML={{ __html: heroText }} />
+                                    <span className="flex-1 -mt-1 pr-12 md:pr-0 ">{ title }</span></h3>
+                                    <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl xl:text-lg" dangerouslySetInnerHTML={{ __html: teaserText }} />
 
                                     <Link href={`/${slug.current}`}>
                                       <a className={ `text-sm md:text-lg mt-6 uppercase font-medium block group underline`}>
