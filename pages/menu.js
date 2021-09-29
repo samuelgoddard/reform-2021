@@ -36,7 +36,7 @@ const query = `{
     },
   },
   "contact": *[_type == "contact"][0]{
-    instragram,
+    instagram,
     linkedin
   }
 }`
