@@ -53,12 +53,12 @@ export default function Home(initialData) {
           <div data-scroll-section>
             <LazyMotion features={domAnimation}>
               <m.section
-                className="bg-offwhitelight"
+                className=""
                 initial="initial"
                 animate="enter"
                 exit="exit"
               >
-                <div className="overflow-hidden">
+                <m.div className="overflow-hidden" variants={fade} className="bg-offwhitelight">
                   <div className="pt-10 md:pt-12 xl:pt-16">
                     <m.div variants={fade} className="pt-12 md:pt-16 xl:pt-16 relative z-10">
                       
@@ -263,7 +263,7 @@ export default function Home(initialData) {
                   <m.div variants={fade}>
                     <Footer />
                   </m.div>
-                </div>
+                </m.div>
               </m.section>
             </LazyMotion>
           </div>
