@@ -10,7 +10,7 @@ import Home from 'pages'
 import ImageWrapper from '@/components/image-wrapper'
 
 const query = `{
-  "expertises": *[_type == "expertises"]{
+  "expertises": *[_type == "expertises"] | order(order asc) {
     title,
     heroText,
     heroImage {

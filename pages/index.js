@@ -24,7 +24,7 @@ const query = `{
       }
     },
   },
-  "expertises": *[_type == "expertises"]{
+  "expertises": *[_type == "expertises"] | order(order asc){
     title,
     teaserText,
     slug {
@@ -38,9 +38,6 @@ const pageService = new SanityPageService(query)
 export default function Home(initialData) {
   const { data: { home, expertises }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
-
-  const whatWeDoBlocksFirstCol = expertises.slice(0,2)
-  const whatWeDoBlocksSecondCol = expertises.slice(2)
 
   return (
     <Layout>
@@ -226,11 +223,11 @@ export default function Home(initialData) {
 
                     <m.div variants={fade} className="content bg-offwhite">
                       <div className="">
-                        <div className="grid md:grid-cols-2">
-                          <div className="md:grid-col-1 md:border-r border-offblack">
-                            {whatWeDoBlocksFirstCol.map(({ title, teaserText, slug }, i) => {
+                        <div className="">
+                          <div className="flex flex-wrap">
+                            {expertises.map(({ title, teaserText, slug }, i) => {
                               return (
-                                <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksFirstCol.length - 1 ? 'border-b border-offblack md:border-b-0' : 'border-b border-offblack' }`}>
+                                <div key={i} className={`w-full lg:w-1/3 lg:border-r p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === expertises.length - 1 ? 'border-b border-offblack md:border-b-0' : 'border-b border-offblack' }`}>
                                   
                                   <div className="scrollreveal">
                                     <h3 className="h4 flex flex-wrap items-center w-full mb-6 md:mb-8">
@@ -254,33 +251,6 @@ export default function Home(initialData) {
                                 </div>
                               )
                             })} 
-                          </div>
-                          <div className="md:grid-col-1">
-                            {whatWeDoBlocksSecondCol.map(({ title, teaserText, slug }, i) => {
-                              return (
-                                <div key={i} className={`w-full p-4 pt-8 md:p-12 lg:p-16 xl:p-20 ${ i === whatWeDoBlocksSecondCol.length - 1 ? '' : 'border-b border-offblack' }`}>
-                                  <div className="scrollreveal">
-                                    <h3 className="h4 flex flex-wrap items-center w-full mb-6 md:mb-8">
-                                    
-                                    {/* <NumberShape number={i + 3} /> */}
-                                    
-                                    <span className="flex-1 -mt-1 pr-12 md:pr-0 ">{ title }</span></h3>
-                                    <div className="w-110/12 md:w-11/12 xl:w-10/12 xl:max-w-2xl xl:text-lg" dangerouslySetInnerHTML={{ __html: teaserText }} />
-
-                                    <Link href={`/${slug.current}`}>
-                                      <a className={ `text-sm md:text-lg mt-6 uppercase font-medium block group underline`}>
-                                        <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6">
-                                          <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
-                                            <span className="block transform translate">Learn More</span>
-                                            <span className="hidden md:block">Learn More</span>
-                                          </span>
-                                        </span>
-                                      </a>
-                                    </Link>
-                                  </div>
-                                </div>
-                              )
-                            })}
                           </div>
                         </div>
                       </div>

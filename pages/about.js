@@ -29,7 +29,7 @@ const query = `{
       }
     },
   },
-  "team": *[_type == "team"]{
+  "team": *[_type == "team"] | order(order asc){
     name,
     image {
       asset->

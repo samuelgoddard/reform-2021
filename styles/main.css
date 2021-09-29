@@ -395,3 +395,12 @@ html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
+/* img {
+  @apply relative overflow-hidden; 
+  &:before {
+    content: ' ';
+    @apply absolute bottom-0 left-0 w-full h-px bg-offwhitelight -rotate-45 translate-x-[-50%] scale-x-[200];
+  }
+} */
