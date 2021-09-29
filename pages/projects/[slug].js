@@ -10,6 +10,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import NumberShape from '@/components/numberShape'
 import { useRouter } from 'next/router'
 import ImageWrapper from '@/components/image-wrapper'
+import BlockContent from '@sanity/block-content-to-react'
 
 const query = `*[_type == "projects" && slug.current == $slug][0]{
   seo {
@@ -144,7 +145,9 @@ export default function Project(initialData) {
                         <NumberShape number="R" />
                       </div>
 
-                      <p className="md:text-lg xl:text-xl w-10/12 md:w-11/12 xl:w-10/12">{description}</p>
+                      <div className="md:text-lg xl:text-xl w-10/12 md:w-11/12 xl:w-10/12 content">
+                          <BlockContent serializers={{ container: ({ children }) => children }} blocks={description} />
+                        </div>
                     </div>
                   </m.div>
                 </div>

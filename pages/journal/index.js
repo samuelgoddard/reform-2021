@@ -8,9 +8,10 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import ImageWrapper from '@/components/image-wrapper'
+import ConditionalWrap from 'conditional-wrap';
 
 const query = `{
-  "journal": *[_type == "journal"]{
+  "journal": *[_type == "journal"] | order(date desc){
     title,
     date,
     content,
@@ -18,6 +19,7 @@ const query = `{
     images[] {
       asset->
     },
+    externalUrl,
     slug {
       current
     }
@@ -57,15 +59,36 @@ export default function Journals(initialData) {
                 </div>
 
                 <m.div variants={fade} className="bg-offwhitelight flex flex-wrap border-b border-black">
-                  {journal.map(({ title, images, slug, date, metaType }, i) => {
+                  {journal.map(({ title, images, slug, date, metaType, externalUrl }, i) => {
                     let d = new Date(date);
                     let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
                     let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
                     let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
 
+                    let isExternal = null
+
+                    if (externalUrl) {
+                      isExternal = false
+                    } else {
+                      isExternal = true
+                    }
+
                     return (
-                      <Link href={`/journal/${slug.current}`} key={i}>
-                        <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 group md:w-1/3 flex flex-wrap`}>
+                      <ConditionalWrap
+                        condition={!!isExternal}
+                        key={i}
+                        wrap={children => (
+                          <Link href={`/journal/${slug.current}`}>
+                            {children}
+                          </Link>
+                        )}
+                      >
+                        <a
+                          className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 group md:w-1/3 flex flex-wrap`}
+                          { ...( !isExternal && { href: externalUrl } ) }
+                          { ...( !isExternal && { target: '_blank' } ) }
+                          { ...( !isExternal && { rel: 'noopener noreferrer' } ) }
+                        >
                           <div className="w-full block">
                             <span className="block text-base font-medium">{`${da}.${mo}.${ye}`}</span>
                             <span className="block text-sm italic mb-6">{metaType}</span>
@@ -85,49 +108,7 @@ export default function Journals(initialData) {
                             <span className="block text-xl md:text-xl lg:text-2xl xl:text-3xl"> {title}</span>
                           </div>
                         </a>
-                      </Link>
-                    )
-                  })}
-                  {journal.reverse().map(({ title, images, slug, date, metaType }, i) => {
-                    return (
-                      <Link href={`/journal/${slug.current}`} key={i}>
-                        <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 group md:w-1/3 flex flex-wrap`}>
-                          <div className="w-full block">
-                            <span className="block text-base font-medium">{date}</span>
-                            <span className="block text-sm italic mb-6">{metaType}</span>
-                            { images?.length > 0 && (
-                              <div className="w-full block mb-auto">
-                                <img src={images[0].asset.url} className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0" />
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="block w-full mt-auto">
-                            <span className="block text-xl md:text-xl lg:text-2xl xl:text-3xl"> {title}</span>
-                          </div>
-                        </a>
-                      </Link>
-                    )
-                  })}
-                  {journal.reverse().map(({ title, images, slug, date, metaType }, i) => {
-                    return (
-                      <Link href={`/journal/${slug.current}`} key={i}>
-                        <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-8 md:p-6 xl:p-8 group md:w-1/3 flex flex-wrap`}>
-                          <div className="w-full block">
-                            <span className="block text-base font-medium">{date}</span>
-                            <span className="block text-sm italic mb-6">{metaType}</span>
-                            { images?.length > 0 && (
-                              <div className="w-full block mb-auto">
-                                <img src={images[0].asset.url} className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0" />
-                              </div>
-                            )}
-                          </div>
-
-                          <div className="block w-full mt-auto">
-                            <span className="block text-xl md:text-xl lg:text-2xl xl:text-3xl"> {title}</span>
-                          </div>
-                        </a>
-                      </Link>
+                      </ConditionalWrap>
                     )
                   })}
                 </m.div>

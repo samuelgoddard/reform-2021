@@ -22,6 +22,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
   title,
   metaType,
   date,
+  imagesTop,
   images[] {
     asset->
   },
@@ -34,7 +35,7 @@ const query = `*[_type == "journal" && slug.current == $slug][0]{
 const pageService = new SanityPageService(query)
 
 export default function Journal(initialData) {
-  const { data: { title, seo, metaType, date, images, slug, content }} = pageService.getPreviewHook(initialData)()
+  const { data: { title, seo, metaType, date, images, slug, content, imagesTop }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
   const router = useRouter()
   const [copied, setCopied] = useState(false);
@@ -116,20 +117,16 @@ export default function Journal(initialData) {
                 exit="exit"
               >
                 <div>
-                  <m.div variants={fade} className="relative z-50 bg-offwhite flex flex-wrap">
-                    <div className="w-full md:w-4/12 p-4 md:p-6 xl:p-8">
-                     
-                      <div className="md:text-lg w-10/12 md:w-11/12 xl:w-10/12 pb-12 md:pb-20 xl:pb-32 xl:text-xl">
-                        <BlockContent serializers={{ container: ({ children }) => children }} blocks={content} />
-                      </div>
-                    </div>
 
-                      <div className="w-full md:w-8/12 border-b md:border-b-0 md:border-l border-black relative">
+                  
+                  <m.div variants={fade} className="relative z-50 bg-offwhite flex flex-wrap">
+                    {imagesTop && (
+                      <div className="w-full flex flex-wrap border-b border-black pt-0 md:pt-5 xl:pt-8">
                         {images?.length > 0 && (
                           <>
                             {images.map(({ asset }, i) => {
                               return (
-                                <div className={` mb-4 md:mb-6 xl:mb-8 pb-4 md:pb-6 xl:pb-8 px-4 md:px-6 xl:px-8 ${i !== images.length - 1 ? 'border-b border-black' : 'pb-0 md:pb-0 xl:pb-0' } ${i == 0 ? 'md:pt-6 xl:pt-8' : '' }`} key={i}>
+                                <div className={`mb-4 md:mb-5 xl:mb-8 px-4 md:px-4 xl:px-4 w-full md:w-1/3`} key={i}>
                                   <ImageWrapper
                                     image={asset}
                                     className="w-full border border-black will-change"
@@ -138,8 +135,43 @@ export default function Journal(initialData) {
                                   />
                                 </div>
                               )
-                          })}
+                            })}
                           </>
+                        )}
+                      </div>
+                    )}
+                    <div className={`w-full md:w-4/12 ${!imagesTop ? 'p-4 md:p-6 xl:p-8' : ''}`}>
+                      {!imagesTop && (
+                        <div className="md:text-lg w-10/12 md:w-11/12 xl:w-10/12 pb-12 md:pb-20 xl:pb-32 xl:text-xl content">
+                          <BlockContent serializers={{ container: ({ children }) => children }} blocks={content} />
+                        </div>
+                      )}
+                    </div>
+
+                      <div className="w-full md:w-8/12 border-b md:border-b-0 md:border-l border-black relative">
+                        {!imagesTop ? (
+                          <>
+                            {images?.length > 0 && (
+                              <>
+                                {images.map(({ asset }, i) => {
+                                  return (
+                                    <div className={` mb-4 md:mb-6 xl:mb-8 pb-4 md:pb-6 xl:pb-8 px-4 md:px-6 xl:px-8 ${i !== images.length - 1 ? 'border-b border-black' : 'pb-0 md:pb-0 xl:pb-0' } ${i == 0 ? 'md:pt-6 xl:pt-8' : '' }`} key={i}>
+                                      <ImageWrapper
+                                        image={asset}
+                                        className="w-full border border-black will-change"
+                                        baseWidth={1300}
+                                        baseHeight={880}
+                                      />
+                                    </div>
+                                  )
+                                })}
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          <div className="md:text-lg w-10/12 md:w-11/12 xl:w-10/12 max-w-3xl pb-12 md:pb-20 xl:pb-32 xl:text-xl p-4 md:p-10 xl:p-12 content">
+                            <BlockContent serializers={{ container: ({ children }) => children }} blocks={content} />
+                          </div>
                         )}
                       </div>
                   </m.div>
