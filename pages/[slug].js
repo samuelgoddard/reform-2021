@@ -47,7 +47,7 @@ const query = `*[_type == "expertises" && slug.current == $slug][0]{
     },
   },
   'relatedProjects': *[_type == "projects"]{
-    expertises-> {
+    expertises[]-> {
       title,
       slug {
         current
@@ -615,13 +615,13 @@ export default function Expertises(initialData) {
                       <m.div variants={fade} className="bg-offwhitelight border-b border-black border-t">
                         <Marquee velocity={0.045}>
                         {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
-                          return expertises.slug.current == currentSlug && (
+                          return (expertises[0].slug.current == currentSlug || expertises[1]?.slug.current == currentSlug || expertises[2]?.slug.current == currentSlug) && (
                             <div className="w-[320px] md:w-[400px] flex-none">
                             <Link href={`/projects/${slug.current}`} key={i}>
                               <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                                  className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                                   baseWidth={900}
                                   baseHeight={600}
                                 />
@@ -635,13 +635,13 @@ export default function Expertises(initialData) {
                           )
                         })}
                         {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
-                          return expertises.slug.current == currentSlug && (
+                          return (expertises[0].slug.current == currentSlug || expertises[1]?.slug.current == currentSlug || expertises[2]?.slug.current == currentSlug) && (
                             <div className="w-[320px] md:w-[400px] flex-none">
                             <Link href={`/projects/${slug.current}`} key={i}>
                               <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                                  className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                                   baseWidth={900}
                                   baseHeight={600}
                                 />
@@ -655,13 +655,13 @@ export default function Expertises(initialData) {
                           )
                         })}
                         {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
-                          return expertises.slug.current == currentSlug && (
+                          return (expertises[0].slug.current == currentSlug || expertises[1]?.slug.current == currentSlug || expertises[2]?.slug.current == currentSlug) && (
                             <div className="w-[320px] md:w-[400px] flex-none">
                             <Link href={`/projects/${slug.current}`} key={i}>
-                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block `}>
+                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 "
+                                  className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                                   baseWidth={900}
                                   baseHeight={600}
                                 />

@@ -129,7 +129,7 @@ export default function Journal(initialData) {
                                 <div className={`mb-4 md:mb-5 xl:mb-8 px-4 md:px-4 xl:px-4 w-full md:w-1/3`} key={i}>
                                   <ImageWrapper
                                     image={asset}
-                                    className="w-full border border-black will-change"
+                                    className="w-full will-change"
                                     baseWidth={1300}
                                     baseHeight={880}
                                   />
@@ -158,7 +158,7 @@ export default function Journal(initialData) {
                                     <div className={` mb-4 md:mb-6 xl:mb-8 pb-4 md:pb-6 xl:pb-8 px-4 md:px-6 xl:px-8 ${i !== images.length - 1 ? 'border-b border-black' : 'pb-0 md:pb-0 xl:pb-0' } ${i == 0 ? 'md:pt-6 xl:pt-8' : '' }`} key={i}>
                                       <ImageWrapper
                                         image={asset}
-                                        className="w-full border border-black will-change"
+                                        className="w-full  will-change"
                                         baseWidth={1300}
                                         baseHeight={880}
                                       />

@@ -65,16 +65,16 @@ h1, .h1 {
   @apply text-4xl leading-tighter tracking-tight md:leading-tighter lg:leading-tighter xl:leading-tighter 3xl:leading-tighter;
 
   @screen md {
-    font-size: 4.9vw;
+    font-size: 5vw;
   }
   @screen lg {
-    font-size: 4.4vw;
+    font-size: 4.7vw;
   }
   @screen xl {
-    font-size: 4.2vw;
+    font-size: 4.7vw;
   }
   @screen 3xl {
-    font-size: 4vw;
+    font-size: 4.5vw;
   }
 }
 

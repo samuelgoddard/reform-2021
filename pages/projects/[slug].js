@@ -27,7 +27,7 @@ const query = `*[_type == "projects" && slug.current == $slug][0]{
     asset->
   },
   description,
-  expertises-> {
+  expertises[]-> {
     title
   },
   slug {
@@ -100,7 +100,9 @@ export default function Project(initialData) {
                       <span className="block px-4">&bull;</span>
                       <span className="block">{location}</span>
                       <span className="block px-4">&bull;</span>
-                      <span className="block">{expertises.title}</span>
+                      <span className="block">{expertises.map(({ title }, i) => { return (
+                        <span className="">{title}{i + 1 == expertises.length ? '' : ', ' }</span>
+                      )  })}</span>
                       
                       { copied ? (
                         <span className="ml-auto hidden md:block focus:border-none" onClick={copy}>Link Copied</span>  
@@ -132,7 +134,7 @@ export default function Project(initialData) {
 
                             <ImageWrapper
                               image={asset}
-                              className="w-full border border-black will-change"
+                              className="w-full will-change"
                               baseWidth={1300}
                               baseHeight={880}
                             />

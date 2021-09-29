@@ -51,10 +51,10 @@ export default function Journals(initialData) {
                 exit="exit"
               >
                 <div className="overflow-hidden">
-                  <m.div variants={fade} className="bg-offwhitelight pt-40 md:pt-56 xl:pt-72 pb-6 xl:pb-8 px-4 md:px-6 xl:px-8 border-b border-black">
+                  <m.div variants={fade} className="bg-offwhitelight pt-40 md:pt-56 xl:pt-72 px-4 md:px-6 xl:px-8 border-b border-black">
                     <h1 className="expertise-title">Journal</h1>
                     
-                    <p className="max-w-xl xl:text-xl">Our expertise in this area represents a key un-locker of value and underpins the business. Reform has its own, in-house, fully functioning architectural practice and can provide a full range.</p>
+                    {/* <p className="max-w-xl xl:text-xl">Our expertise in this area represents a key un-locker of value and underpins the business. Reform has its own, in-house, fully functioning architectural practice and can provide a full range.</p> */}
                   </m.div>
                 </div>
 
@@ -96,7 +96,7 @@ export default function Journals(initialData) {
                               <div className="w-full block mb-auto">
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 will-change"
+                                  className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 will-change"
                                   baseWidth={900}
                                   baseHeight={600}
                                 />

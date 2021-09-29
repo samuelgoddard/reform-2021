@@ -16,7 +16,7 @@ const query = `{
     images[] {
       asset->
     },
-    expertises-> {
+    expertises[]-> {
       title
     },
     slug {
@@ -50,10 +50,10 @@ export default function Projects(initialData) {
                 exit="exit"
               >
                 <div className="overflow-hidden">
-                  <m.div variants={fade} className="bg-offwhitelight pt-40 md:pt-56 xl:pt-72 pb-6 xl:pb-8 px-4 md:px-6 xl:px-8 border-b border-black">
+                  <m.div variants={fade} className="bg-offwhitelight pt-40 md:pt-56 xl:pt-72 px-4 md:px-6 xl:px-8 border-b border-black">
                     <h1 className="expertise-title">Projects</h1>
                     
-                    <p className="max-w-xl xl:text-xl">Our expertise in this area represents a key un-locker of value and underpins the business. Reform has its own, in-house, fully functioning architectural practice and can provide a full range.</p>
+                    {/* <p className="max-w-xl xl:text-xl">Our expertise in this area represents a key un-locker of value and underpins the business. Reform has its own, in-house, fully functioning architectural practice and can provide a full range.</p> */}
                   </m.div>
                 </div>
 
@@ -71,7 +71,9 @@ export default function Projects(initialData) {
                           />
 
                           <span className="block text-lg md:text-xl xl:text-2xl">{title}</span>
-                          <span className="block text-sm italic">{expertises.title}</span>
+                          <span className="block text-sm italic">{expertises.map(({ title }, i) => { return (
+                        <span className="">{title}{i + 1 == expertises.length ? '' : ', ' }</span>
+                      )  })}</span>
                           <span className="block text-sm italic">{year}</span>
                         </a>
                       </Link>
