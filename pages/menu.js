@@ -72,19 +72,19 @@ export default function Menu(initialData) {
                   <div className="pt-12 md:pt-16 xl:pt-20 md:h-screen">
                     <m.div variants={fade} className="flex flex-wrap md:h-full">
                       <div className="w-full md:w-1/2 xl:w-1/3 border-r border-black relative h-[35vh] md:h-full hidden md:block overflow-hidden">
-
-                        <ImageWrapper
-                          image={menu.images[0].asset}
-                          className="absolute inset-0 object-center object-cover w-full h-full"
-                          baseWidth={900}
-                          baseHeight={1200}
-                          fill
-                        />
+                        
+                          <ImageWrapper
+                            image={menu.images[0].asset}
+                            className={`absolute inset-0 object-center object-cover transition-all w-full h-full ease-in-out duration-[1000ms] ${ currentHoveredImage == 0 ? 'opacity-100' : 'opacity-0' }`}
+                            baseWidth={900}
+                            baseHeight={1200}
+                            fill
+                          />
 
                         {/* <img src={menu.images[0].asset.url} className="absolute inset-0 object-center object-cover w-full h-full" /> */}
 
                         {menu.images.length > 0 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[1].asset}
@@ -98,7 +98,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 1 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[2].asset}
@@ -112,7 +112,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 2 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[3].asset}
@@ -126,7 +126,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 3 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[4].asset}
@@ -140,7 +140,7 @@ export default function Menu(initialData) {
                         )}
                         
                         {menu.images.length > 4 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 5 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 5 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[5].asset}
@@ -154,7 +154,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 5 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[6].asset}
@@ -168,7 +168,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 6 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 7 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 7 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[7].asset}
@@ -182,7 +182,7 @@ export default function Menu(initialData) {
                         )}
 
                         {menu.images.length > 7 && (
-                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-500 ${ currentHoveredImage == 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
+                          <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[1000ms] ${ currentHoveredImage == 8 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                             <div className="w-full h-full transform inset-0">
                               <ImageWrapper
                                 image={menu.images[8].asset}

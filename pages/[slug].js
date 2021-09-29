@@ -97,7 +97,7 @@ export default function Expertises(initialData) {
                 animate="enter"
                 exit="exit"
               >
-                <div className="grid md:grid-cols-2 pt-12 md:pt-14 xl:pt-14 border-b border-black">
+                <div className="grid md:grid-cols-2 pt-12 md:pt-14 xl:pt-14">
                   <div className="absolute top-0 left-0 right-0 bottom-0" id="pinned-pane"></div>
                   
                   <m.div variants={fade} className="md:col-span-1 md:h-screen relative overflow-hidden bg-offwhite border-b md:border-b-0 md:border-r border-black" data-scroll-sticky data-scroll data-scroll-target="#pinned-pane">
@@ -396,7 +396,7 @@ export default function Expertises(initialData) {
                     { processImage && (
                       <ImageWrapper
                         image={processImage.asset}
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-center bg-offwhitelight"
                         baseWidth={1200}
                         baseHeight={1200}
                         fill
@@ -658,10 +658,10 @@ export default function Expertises(initialData) {
                           return expertises.slug.current == currentSlug && (
                             <div className="w-[320px] md:w-[400px] flex-none">
                             <Link href={`/projects/${slug.current}`} key={i}>
-                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
+                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block `}>
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 "
                                   baseWidth={900}
                                   baseHeight={600}
                                 />
@@ -688,7 +688,7 @@ export default function Expertises(initialData) {
                 exit="exit"
               >
                 <div>
-                  <m.div variants={fade} className="mt-[-22px] relative z-50">
+                  <m.div variants={fade} className="mt-[-22px] relative z-50 bg-offwhitelight">
                     {supportingImage && (
                       <ImageWrapper
                         image={supportingImage.asset}
