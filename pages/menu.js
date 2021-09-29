@@ -34,13 +34,17 @@ const query = `{
     heroImage {
       asset ->
     },
+  },
+  "contact": *[_type == "contact"][0]{
+    instragram,
+    linkedin
   }
 }`
 
 const pageService = new SanityPageService(query)
 
 export default function Menu(initialData) {
-  const { data: { expertises, home, about, menu }} = pageService.getPreviewHook(initialData)()
+  const { data: { expertises, home, about, menu, contact }} = pageService.getPreviewHook(initialData)()
   const containerRef = useRef(null)
   
   const [currentHoveredImage, setCurrentHoveredImage] = useState(0);
@@ -230,7 +234,7 @@ export default function Menu(initialData) {
                           </nav>
 
                           <div className="md:absolute md:bottom-0 md:right-0 md:w-1/2 xl:w-2/3 flex flex-wrap text-right justify-end pl-2 md:pl-0 md:pr-6 md:pb-2">
-                            <a href="https://www.instagram.com/reform_property/" target="_blank" rel="noopener noreferrer" className={ `text-sm md:text-lg xl:text-xl uppercase font-medium block px-2 py-4 group underline`}>
+                            <a href={contact.instagram} target="_blank" rel="noopener noreferrer" className={ `text-sm md:text-lg xl:text-xl uppercase font-medium block px-2 py-4 group underline`}>
                               <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
                                 <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
                                   <span className="block transform translate">Insta<span className="hidden md:inline">gram</span></span>
@@ -239,7 +243,7 @@ export default function Menu(initialData) {
                               </span>
                             </a>
 
-                            <a href="https://www.instagram.com/reform_property/" target="_blank" rel="noopener noreferrer" className={ `text-sm md:text-lg xl:text-xl uppercase font-medium block px-2 py-4 group underline`}>
+                            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className={ `text-sm md:text-lg xl:text-xl uppercase font-medium block px-2 py-4 group underline`}>
                               <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
                                 <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
                                   <span className="block transform translate">LinkedIn</span>

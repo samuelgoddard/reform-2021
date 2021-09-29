@@ -9,6 +9,7 @@ import { NextSeo } from 'next-seo'
 import SanityPageService from '@/services/sanityPageService'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import ImageWrapper from '@/components/image-wrapper'
+import BlockContent from '@sanity/block-content-to-react'
 
 const query = `{
   "home": *[_type == "home"][0]{
@@ -186,7 +187,7 @@ export default function Home(initialData) {
                             <div className="w-full h-px bg-offblack mr-12"></div>
                           </div>
                           
-                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto -mt-24 md:-mt-48 xl:-mt-84 3xl:-mt-96 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
+                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto -mt-24 md:-mt-48 xl:-mt-64 3xl:-mt-96 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
                             <div className="ml-auto text-right w-full md:w-auto mb-3 flex md:block">
                               <div className="ml-auto">
                                 <NumberShape number="R" />
@@ -194,7 +195,9 @@ export default function Home(initialData) {
                             </div>
 
                             <div className="ml-auto scrollreveal">
-                              <h2 className="text-3xl md:text-4xl xl:text-5xl 3xl:text-6xl relative z-10 w-full block 3xl:pl-16 textrevealnonescrollContent text-right split-right">{home.heroText}</h2>
+                              <h2 className="text-3xl md:text-5xl xl:text-6xl 3xl:text-6xl relative z-10 w-full block xl:pl-16 3xl:pl-16 textrevealnonescrollContent text-right split-right">
+                                <BlockContent serializers={{ container: ({ children }) => children }} blocks={home.heroText} />
+                              </h2>
                             </div>
                           </div>
                         </div>
