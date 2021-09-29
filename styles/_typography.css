@@ -242,3 +242,9 @@ p {
 .bg-black::moz-selection {
   @apply text-black bg-offwhite !important;
 }
+
+.MarqueeContent {
+  will-change: transform;
+  width: 5000px;
+  @apply flex flex-row !important;
+}

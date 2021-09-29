@@ -9,6 +9,7 @@ import NumberShape from '@/components/numberShape'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import BlockContent from '@sanity/block-content-to-react'
+import Marquee from "react-smooth-marquee"
 
 import {
   Accordion,
@@ -608,15 +609,16 @@ export default function Expertises(initialData) {
                 exit="exit"
               >
                 <div className="grid md:grid-cols-5 border-b border-black -mt-px">
-
-                  <m.div variants={fade} className="md:col-span-5 relative overflow-hidden md:mb-0 bg-offwhitelight flex pt-20 md:pt-40 pb-5">
+                  <m.div variants={fade} className="md:col-span-5 relative overflow-hidden md:mb-0 bg-offwhitelight flex flex-row pt-20 md:pt-40 pb-5">
                     <div className="mt-auto w-full">                  
 
-                      <m.div variants={fade} className="bg-offwhitelight flex flex-wrap border-b border-black border-t">
+                      <m.div variants={fade} className="bg-offwhitelight border-b border-black border-t">
+                        <Marquee velocity={0.045}>
                         {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
                           return expertises.slug.current == currentSlug && (
+                            <div className="w-[320px] md:w-[400px] flex-none">
                             <Link href={`/projects/${slug.current}`} key={i}>
-                              <a className={`w-full border-b md:border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 block group md:w-1/3 `}>
+                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
                                 <ImageWrapper
                                   image={images[0].asset}
                                   className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
@@ -629,11 +631,51 @@ export default function Expertises(initialData) {
                                 <span className="block text-sm italic">{year}</span>
                               </a>
                             </Link>
+                            </div>
                           )
                         })}
+                        {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
+                          return expertises.slug.current == currentSlug && (
+                            <div className="w-[320px] md:w-[400px] flex-none">
+                            <Link href={`/projects/${slug.current}`} key={i}>
+                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
+                                <ImageWrapper
+                                  image={images[0].asset}
+                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                                  baseWidth={900}
+                                  baseHeight={600}
+                                />
+
+                                <span className="block text-lg md:text-xl xl:text-2xl">{title}</span>
+                                <span className="block text-sm italic">{expertises.title}</span>
+                                <span className="block text-sm italic">{year}</span>
+                              </a>
+                            </Link>
+                            </div>
+                          )
+                        })}
+                        {relatedProjects.map(({ title, images, slug, expertises, year }, i) => {
+                          return expertises.slug.current == currentSlug && (
+                            <div className="w-[320px] md:w-[400px] flex-none">
+                            <Link href={`/projects/${slug.current}`} key={i}>
+                              <a className={`border-b border-r border-black p-4 pt-5 pb-12 md:p-6 md:pb-32 xl:p-8 xl:pb-40 group block`}>
+                                <ImageWrapper
+                                  image={images[0].asset}
+                                  className="w-full border border-black grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                                  baseWidth={900}
+                                  baseHeight={600}
+                                />
+
+                                <span className="block text-lg md:text-xl xl:text-2xl">{title}</span>
+                                <span className="block text-sm italic">{expertises.title}</span>
+                                <span className="block text-sm italic">{year}</span>
+                              </a>
+                            </Link>
+                            </div>
+                          )
+                        })}
+                        </Marquee>
                       </m.div>
-
-
                     </div>
                   </m.div>
                 </div>
