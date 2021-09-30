@@ -33,7 +33,7 @@ const query = `*[_type == "projects" && slug.current == $slug][0]{
   slug {
     current
   },
-  'next': *[_rev > ^._rev] | order(_rev asc)[0] {
+  'next': *[_type == "projects" && _createdAt > ^._createdAt] | order(_createdAt asc)[0] {
     title,
     slug {
       current
@@ -164,13 +164,13 @@ export default function Project(initialData) {
                 <div>
                   <m.div variants={fade} className="relative z-50">
 
-                    {/* { next?.slug?.current && (
+                    { next?.slug?.current && (
                       <Link href={next.slug.current}>
                         <a className="w-full border-t border-black flex flex-wrap items-center px-4 md:px-6 xl:px-8 text-xl md:text-2xl xl:text-3xl py-6 xl:py-8 justify-center bg-offwhitelight">
                           <span className="block">Next Project: {next.title}</span>
                         </a>
                       </Link>
-                    )} */}
+                    )}
 
                     <Footer />
                   </m.div>

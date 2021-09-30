@@ -63,7 +63,7 @@ export default function Home(initialData) {
                     <m.div variants={fade} className="pt-12 md:pt-16 xl:pt-16 relative z-10">
                       
                       <div className="flex flex-wrap items-center px-5 md:px-8">
-                        <div className="w-full md:w-9/12 relative">
+                        <div className="w-full relative">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1127 240" className="">
                             <defs>
                               <clipPath id="clip-logo-stroke">
@@ -115,14 +115,14 @@ export default function Home(initialData) {
                             </g>
                           </svg>
                         </div>
-                        <div className="w-full md:w-3/12 hidden md:block">
+                        {/* <div className="w-full md:w-3/12 hidden md:block">
                           <m.div 
                             initial={{ translateX: "100%" }}
                             animate={{ translateX: "0" }}
                             transition={{ duration: 2.2, ease: [0.76, 0, 0.24, 1] }}
                             className="w-full h-px bg-offblack ml-8">
                           </m.div>
-                        </div>
+                        </div> */}
                       </div>
                     </m.div>
 
@@ -130,7 +130,7 @@ export default function Home(initialData) {
                       <div className="pb-12 md:pb-20 3xl:pb-32 bg-offwhitelight">
                         <div className="relative lg:-mt-12">
 
-                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex">
+                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex z-[4]">
                             <span className="block ml-5 leading-tight">
                               <span className="overflow-hidden block">
                                 <m.span
@@ -162,21 +162,29 @@ export default function Home(initialData) {
                             </span>
                           </div>
 
-                          <div className="relative">
+                          <div className="relative mt-[-15vw] md:mt-[-12vw] xl:mt-[-10vw]">
                             {/* <img src={home.heroImage.asset.url} className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" /> */}
 
-                              <ImageWrapper
-                                image={home.heroImage.asset}
-                                className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100 hidden md:block"
-                                baseWidth={1600}
-                                baseHeight={1200}
-                              />
+                            <div className="absolute top-0 left-0 right-0 w-full md:h-[12vw] xl:h-[8vw] bg-gradient-to-b from-offwhitelight via-offwhitelight to-transparent z-[5] -mt-1"></div>
+
+                              <div className="relative overflow-hidden border-b border-black w-full h-[50vw] hidden md:block z-[1]">
+                                <div className="absolute h-full w-full inset-0 z-[1]" data-scroll
+                                  data-scroll-speed={-1}>
+                                  <ImageWrapper
+                                    image={home.heroImage.asset}
+                                    className="w-full h-full inset-0 absolute home-image bg-offwhitelight will-change transform hidden md:block z-[4] pb-0 mb-0 object-cover object-center mt-[0.7vw]"
+                                    baseWidth={1600}
+                                    baseHeight={800}
+                                    fill
+                                  />
+                                </div>
+                              </div>
 
                               <ImageWrapper
                                 image={home.heroImage.asset}
-                                className="w-full home-image bg-offwhitelight will-change transform  origin-top-right md:scale-100 block md:hidden"
+                                className="w-full home-image bg-offwhitelight will-change transform  origin-top-right md:scale-100 block md:hidden z-[4]"
                                 baseWidth={900}
-                                baseHeight={1200}
+                                baseHeight={900}
                               />
                             {/* <Img fluid={ this.props.data.home.image.fluid } className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" /> */}
                           </div>
@@ -184,10 +192,10 @@ export default function Home(initialData) {
 
                         <div className="flex flex-wrap">
                           <div className="flex-1 hidden md:block">
-                            <div className="w-full h-px bg-offblack mr-12"></div>
+                            <div className="w-full h-px mr-12"></div>
                           </div>
                           
-                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto -mt-24 md:-mt-48 xl:-mt-64 3xl:-mt-96 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
+                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto mt-6 md:mt-8 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
                             <div className="ml-auto text-right w-full md:w-auto mb-3 flex md:block">
                               <div className="ml-auto">
                                 <NumberShape number="R" />
