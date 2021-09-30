@@ -49,7 +49,7 @@ const Header = ({ noLogo }) => (
             </div>
           </span>
         
-          <div className={`w-20 xs:w-24 md:w-32 xl:w-40 transition ease-in-out duration-1000 ${noLogo ? 'opacity-0 ' : 'opacity-100' }`}>
+          <div className={`w-20 xs:w-24 md:w-32 xl:w-40 ml-[-30px] transition ease-in-out duration-1000 ${noLogo ? 'opacity-0 ' : 'opacity-100' }`}>
             <Logo withHover />
           </div>
         </a>
