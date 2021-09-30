@@ -116,7 +116,7 @@ export default function Journals(initialData) {
                               <div className={`block mb-auto ${imageClass}`}>
                                 <ImageWrapper
                                   image={images[0].asset}
-                                  className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 will-change"
+                                  className="w-full  mb-4 transition-all ease-in-out duration-500 group-hover:opacity-80 group-hover:grayscale-0 will-change"
                                   baseWidth={imageWidth}
                                   baseHeight={imageHeight}
                                 />
