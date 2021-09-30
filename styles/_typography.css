@@ -149,9 +149,20 @@ h4, .h4 {
 
 .hero-image-tagline {
   margin-left: 20%;
-  margin-top: 12%;
+  margin-top: 13.5%;
   font-size: 1.35vw;
-  width: 17%;
+
+  @screen md {
+    font-size: 1.5vw;
+    width: 20%;
+    margin-top: 16.8%;
+  }
+
+  @screen xl {
+    font-size: 1.35vw;
+    width: 17%;
+    margin-top: 16%;
+  }
 }
 
 /* Link */

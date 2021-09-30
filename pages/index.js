@@ -130,7 +130,7 @@ export default function Home(initialData) {
                       <div className="pb-12 md:pb-20 3xl:pb-32 bg-offwhitelight">
                         <div className="relative lg:-mt-12">
 
-                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex z-[4]">
+                          <div className="flex-wrap absolute top-0 left-0 hero-image-tagline hidden lg:flex z-[4]" data-scroll data-scroll-speed={-0.5}>
                             <span className="block ml-5 leading-tight">
                               <span className="overflow-hidden block">
                                 <m.span
@@ -162,19 +162,19 @@ export default function Home(initialData) {
                             </span>
                           </div>
 
-                          <div className="relative mt-[-15vw] md:mt-[-12vw] xl:mt-[-10vw]">
+                          <div className="relative mt-[-15vw] md:mt-[-15vw] xl:mt-[-13vw]">
                             {/* <img src={home.heroImage.asset.url} className="w-full home-image bg-offwhitelight will-change transform scale-125 origin-top-right md:scale-100" /> */}
 
-                            <div className="absolute top-0 left-0 right-0 w-full md:h-[12vw] xl:h-[8vw] bg-gradient-to-b from-offwhitelight via-offwhitelight to-transparent z-[5] -mt-1"></div>
+                            <div className="absolute top-0 left-0 right-0 w-full md:h-[14vw] xl:h-[12vw] bg-gradient-to-b from-offwhitelight via-offwhitelight to-transparent z-[5] -mt-1"></div>
 
-                              <div className="relative overflow-hidden border-b border-black w-full h-[50vw] hidden md:block z-[1]">
+                              <div className="relative overflow-hidden border-b border-black w-full h-[55vw] hidden md:block z-[1]">
                                 <div className="absolute h-full w-full inset-0 z-[1]" data-scroll
                                   data-scroll-speed={-1}>
                                   <ImageWrapper
                                     image={home.heroImage.asset}
                                     className="w-full h-full inset-0 absolute home-image bg-offwhitelight will-change transform hidden md:block z-[4] pb-0 mb-0 object-cover object-center mt-[0.7vw]"
                                     baseWidth={1600}
-                                    baseHeight={800}
+                                    baseHeight={880}
                                     fill
                                   />
                                 </div>
