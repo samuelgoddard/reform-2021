@@ -156,7 +156,7 @@ export default function Expertises(initialData) {
                       />
                     )}
 
-                    {process.length > 0 && (
+                    {/* {process.length > 0 && (
                       <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[750ms] ${ currentImage == 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                         <div className="w-full h-full transform inset-0">
                           <ImageWrapper
@@ -350,44 +350,28 @@ export default function Expertises(initialData) {
                           />
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </m.div>
 
                   <m.div variants={fade} className="md:col-span-2 md:min-h-[900px] relative overflow-hidden md:mb-0 bg-offwhitelight flex pt-20">
                     <div className="mt-auto w-full">
-                      <h2 className="relative expertise-title w-11/12 md:w-10/12 xl:w-8/12 textreveal px-4 md:px-4 xl:px-8 pb-3 md:pb-6 xl:pb-10">Our <span className="italic">process</span></h2>
+                      <h2 className="relative expertise-title w-11/12 md:w-10/12 xl:w-8/12 textreveal px-4 md:px-4 xl:px-8 pb-3 md:pb-6 xl:pb-10">Our <span className="italic">values</span></h2>
                       
                       <div className="border-t border-black">
-                        <Accordion>
-                          {process.map(({ title, description }, i) => {
+                          {process.map(({ title }, i) => {
                             return (
                               <div
                                 key={i}
-                                className={`block text-xl md:text-xl lg:text-2xl xl:text-3xl px-4 md:px-4 xl:px-8 hover:bg-offwhite transition-colors ease-in-out duration-300 ${ i !== process.length - 1 ? 'border-b border-black' : ''}`} 
-                                onMouseOver={() => setCurrentHoveredImage(i + 1)}
-                                onMouseOut={() => setCurrentHoveredImage(0)}
-                                onClick={() => setImageLock(true) & setCurrentImage(i + 1)}
+                                className={`block text-xl md:text-xl lg:text-2xl xl:text-3xl px-4 md:px-4 xl:px-8 ${ i !== process.length - 1 ? 'border-b border-black' : ''}`} 
                               >
 
-                                <AccordionItem>
-                                  <AccordionItemHeading>
-                                    <AccordionItemButton>
                                       <div className="flex w-full py-2">
                                         <span className="block">{title}</span>
-                                        <span className="block ml-auto mt-[1px] md:mt-0">+</span>
+                                        {/* <span className="block ml-auto mt-[1px] md:mt-0">+</span> */}
                                       </div>
-                                    </AccordionItemButton>
-                                  </AccordionItemHeading>
-                                  <AccordionItemPanel>
-                                    <p className="text-base block mb-3 w-10/12 xl:text-lg">
-                                      {description}
-                                    </p>
-                                  </AccordionItemPanel>
-                              </AccordionItem>
                               </div>
                             )
                           })}
-                        </Accordion>
                       </div>
                     </div>
                   </m.div>
@@ -403,7 +387,7 @@ export default function Expertises(initialData) {
                       />
                     )}
 
-                    {process.length > 0 && (
+                    {/* {process.length > 0 && (
                       <div className={`absolute inset-0 z-100 transition-all ease-in-out duration-[750ms] ${ currentImage == 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105' }`}>
                         <div className="w-full h-full transform inset-0">
                           <ImageWrapper
@@ -597,7 +581,7 @@ export default function Expertises(initialData) {
                           />
                         </div>
                       </div>
-                    )}
+                    )} */}
                   </m.div>
                 </div>
               </m.section>

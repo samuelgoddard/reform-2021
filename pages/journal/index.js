@@ -20,6 +20,7 @@ const query = `{
       asset->
     },
     externalUrl,
+    layout,
     slug {
       current
     }
@@ -59,18 +60,37 @@ export default function Journals(initialData) {
                 </div>
 
                 <m.div variants={fade} className="bg-offwhitelight flex flex-wrap border-b border-black">
-                  {journal.map(({ title, images, slug, date, metaType, externalUrl }, i) => {
+                  {journal.map(({ title, images, slug, date, metaType, externalUrl, layout }, i) => {
                     let d = new Date(date);
                     let ye = new Intl.DateTimeFormat('en', { year: '2-digit' }).format(d);
                     let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
                     let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
 
                     let isExternal = null
+                    let imageWidth = 900
+                    let imageHeight = 900
+                    let imageClass = 'w-full'
 
                     if (externalUrl) {
                       isExternal = false
                     } else {
                       isExternal = true
+                    }
+
+                    if (layout == 'square') {
+                      imageWidth = 900
+                      imageHeight = 900
+                    } else if (layout == 'portrait') {
+                      imageWidth = 640
+                      imageHeight = 900
+                      imageClass = 'w-1/2'
+                    } else if (layout == 'small-square') {
+                      imageWidth = 640
+                      imageHeight = 640
+                      imageClass = 'w-1/3 mb-16 md:mb-24 xl:mb-32'
+                    } else {
+                      imageWidth = 900
+                      imageHeight = 550
                     }
 
                     return (
@@ -93,12 +113,12 @@ export default function Journals(initialData) {
                             <span className="block text-base font-medium">{`${da}.${mo}.${ye}`}</span>
                             <span className="block text-sm italic mb-6">{metaType}</span>
                             { images?.length > 0 && (
-                              <div className="w-full block mb-auto">
+                              <div className={`block mb-auto ${imageClass}`}>
                                 <ImageWrapper
                                   image={images[0].asset}
                                   className="w-full grayscale opacity-80 mb-4 transition-all ease-in-out duration-500 group-hover:opacity-100 group-hover:grayscale-0 will-change"
-                                  baseWidth={900}
-                                  baseHeight={600}
+                                  baseWidth={imageWidth}
+                                  baseHeight={imageHeight}
                                 />
                               </div>
                             )}

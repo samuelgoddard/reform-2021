@@ -26,25 +26,25 @@ const Header = ({ noLogo }) => (
           <span className={`text-xs md:text-lg xl:text-xl uppercase font-medium block px-4 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 transition ease-in-out duration-500 absolute top-0 -ml-10 xs:-ml-8 md:-ml-20 lg:-ml-32 ${noLogo ? 'opacity-100' : ' opacity-0' }`}>
             <div className="overflow-hidden w-32 md:w-64 lg:w-84">
               <Marquee velocity={0.035}>
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
-                &nbsp;&nbsp;Architecture. Interior Design. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
+                &nbsp;&nbsp;Architecture. Interiors. Development.&nbsp;&nbsp;
               </Marquee>
             </div>
           </span>

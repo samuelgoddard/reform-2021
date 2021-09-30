@@ -236,7 +236,7 @@ export default function About(initialData) {
                                   <h2 className="mb-8 md:mb-12 xl:mb-16 lg:pt-2 text-offwhite italic">Our<br/>team</h2>
                                 </div>
                               </div>
-
+                              {about.ourTeam > 0 && (
                               <div className="lg:flex lg:flex-wrap items-start md:px-0 pt-0 md:pt-0 mb-12 md:mb-16 xl:mb-24">
                                 {/* <NumberShape number="A" white /> */}
                                 <div className="scrollreveal w-11/12 md:w-9/12 lg:w-9/12 xl:w-10/12 2xl:w-9/12 xl:max-w-lg">
@@ -245,6 +245,7 @@ export default function About(initialData) {
                                   </div>
                                 </div>
                               </div>
+                              )}
 
                               {team.map(({ name, jobTitle, bio, image }, i) => {
                                 return (
