@@ -5,4 +5,5 @@ export default async function exit(req, res) {
   // Redirect the user back to the index page.
   res.writeHead(307, { Location: req.query.currentRoute })
   res.end()
+  
 }
