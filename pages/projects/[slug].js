@@ -23,6 +23,7 @@ const query = `*[_type == "projects" && slug.current == $slug][0]{
   title,
   year,
   location,
+  order,
   images[] {
     asset->
   },
@@ -33,7 +34,7 @@ const query = `*[_type == "projects" && slug.current == $slug][0]{
   slug {
     current
   },
-  'next': *[_type == "projects" && _createdAt > ^._createdAt] | order(_createdAt asc)[0] {
+  'next': *[_type == "projects" && order > ^.order] | order(order asc)[0] {
     title,
     slug {
       current
