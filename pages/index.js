@@ -63,7 +63,7 @@ export default function Home(initialData) {
                     <m.div variants={fade} className="pt-12 md:pt-16 xl:pt-16 relative z-10">
                       
                       <div className="flex flex-wrap items-center px-5 md:px-8">
-                        <div className="w-full relative">
+                        <div className="w-full md:w-9/12 relative">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1127 240" className="">
                             <defs>
                               <clipPath id="clip-logo-stroke">
@@ -115,14 +115,14 @@ export default function Home(initialData) {
                             </g>
                           </svg>
                         </div>
-                        {/* <div className="w-full md:w-3/12 hidden md:block">
+                        <div className="w-full md:w-3/12 hidden md:block">
                           <m.div 
                             initial={{ translateX: "100%" }}
                             animate={{ translateX: "0" }}
                             transition={{ duration: 2.2, ease: [0.76, 0, 0.24, 1] }}
                             className="w-full h-px bg-offblack ml-8">
                           </m.div>
-                        </div> */}
+                        </div>
                       </div>
                     </m.div>
 
