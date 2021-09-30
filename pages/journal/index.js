@@ -95,7 +95,7 @@ export default function Journals(initialData) {
 
                     return (
                       <ConditionalWrap
-                        condition={!!isExternal}
+                        condition={!!isExternal && !!slug}
                         key={i}
                         wrap={children => (
                           <Link href={`/journal/${slug.current}`}>
@@ -111,7 +111,7 @@ export default function Journals(initialData) {
                         >
                           <div className="w-full block">
                             <span className="block text-base font-medium">{`${da}.${mo}.${ye}`}</span>
-                            <span className="block text-sm italic mb-6">{metaType}</span>
+                            <span className="block text-sm italic mb-6">{metaType ?? 'Journal'}</span>
                             { images?.length > 0 && (
                               <div className={`block mb-auto ${imageClass}`}>
                                 <ImageWrapper
