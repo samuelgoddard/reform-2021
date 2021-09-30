@@ -195,7 +195,7 @@ export default function Home(initialData) {
                             <div className="w-full h-px mr-12"></div>
                           </div>
                           
-                          <div className="w-11/12 md:w-full md:max-w-lg xl:max-w-2xl 3xl:max-w-4xl text-right ml-auto mt-6 md:mt-8 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
+                          <div className="w-11/12 md:w-full md:max-w-xl xl:max-w-3xl 3xl:max-w-5xl text-right ml-auto mt-6 md:mt-8 px-4 md:pr-8 xl:pr-12 flex flex-wrap">
                             <div className="ml-auto text-right w-full md:w-auto mb-3 flex md:block">
                               <div className="ml-auto">
                                 <NumberShape number="R" />
