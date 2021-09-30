@@ -7,6 +7,14 @@ export default {
     locale: 'en_GB',
     url: 'https://reform-property.com',
     site_name: 'Reform',
+    images: [
+      {
+        url: '/images/social.jpg',
+        width: 1200,
+        height: 630,
+        alt: `Reform | Reform Logo`,
+      },
+    ],
   },
   twitter: {
     site: '@site',

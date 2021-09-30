@@ -42,7 +42,9 @@ export default function Home(initialData) {
 
   return (
     <Layout>
-      <NextSeo title={home.title} />
+      <NextSeo
+        title={home.title}
+      />
       
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.1 }}
