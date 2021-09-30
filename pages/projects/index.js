@@ -10,7 +10,7 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import ImageWrapper from '@/components/image-wrapper'
 
 const query = `{
-  "projects": *[_type == "projects"]{
+  "projects": *[_type == "projects"] | order(order asc){
     title,
     year,
     images[] {
