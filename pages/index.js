@@ -140,7 +140,7 @@ export default function Home(initialData) {
                                   animate={{ y: 0 }}
                                   transition={{ duration: 1, delay: 0.45, ease: [0.76, 0, 0.24, 1] }}
                                   className="block">
-                                transforming the
+                                Transforming the
                                 </m.span>
                               </span>
                               <span className="overflow-hidden block">
