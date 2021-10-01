@@ -140,7 +140,7 @@ export default function Home(initialData) {
                                   animate={{ y: 0 }}
                                   transition={{ duration: 1, delay: 0.45, ease: [0.76, 0, 0.24, 1] }}
                                   className="block">
-                                Helping to transform
+                                transforming the
                                 </m.span>
                               </span>
                               <span className="overflow-hidden block">
@@ -149,7 +149,7 @@ export default function Home(initialData) {
                                   animate={{ y: 0 }}
                                   transition={{ duration: 1, delay: 0.45, ease: [0.76, 0, 0.24, 1] }}
                                   className="block">
-                                the landscape of
+                                landscape of
                                 </m.span>
                               </span>
                               <span className="overflow-hidden block">
