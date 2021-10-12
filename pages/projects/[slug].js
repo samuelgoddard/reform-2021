@@ -143,7 +143,7 @@ export default function Project(initialData) {
                         )
                       })}
                     </div>
-                    <div className="w-full md:w-4/12 p-4 pt-20 pb-8 md:p-12 md:pt-32 xl:p-16 xl:pt-48" data-scroll data-scroll-speed="-0.5">
+                    <div className="w-full md:w-4/12 p-4 pt-20 pb-8 md:p-12 md:pt-16 xl:p-16 xl:pt-24">
                       <div className="mb-4">
                         <NumberShape number="R" />
                       </div>
