@@ -17,7 +17,7 @@ const Footer = ({ color, hideCta }) => {
 
       <footer className={ colorClasses + colorBorderClasses + `border-t w-full `}>
         <div className="flex flex-wrap items-center">
-          <a href="https://www.instagram.com/reform.architecture/" target="_blank" rel="noopener noreferrer" className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium block px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 border-r group`}>
+          <a href="https://www.instagram.com/reform.architects/" target="_blank" rel="noopener noreferrer" className={ colorBorderClasses + `text-xs md:text-lg xl:text-xl uppercase font-medium block px-3 md:px-6 xl:px-8 py-4 md:py-5 xl:py-6 border-r group`}>
             <span className="block overflow-hidden relative h-auto md:h-5 xl:h-6 md:my-3px">
               <span className="block transform md:group-hover:-translate-y-1/2 md:group-focus:-translate-y-1/2 transition duration-300 ease-in-out md:-mt-px md:leading-tight">
                 <span className="block transform translate">Insta<span className="hidden md:inline">gram</span></span>
